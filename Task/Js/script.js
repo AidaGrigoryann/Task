@@ -1,10 +1,28 @@
 const swiper1 = new Swiper('.types-slider', {
     spaceBetween: 20,
-    slidesPerView: 3,
+    slidesPerView: 2,
     // Navigation arrows
     navigation: {
       nextEl: '.types-slider__next',
       prevEl: '.types-slider__prev',
+    },
+    breakpoints: {
+      927: {
+        slidesPerView: 7,
+      },
+      660: {
+        slidesPerView: 4,
+      }
+    }
+  });
+
+  const swiper3 = new Swiper('.catalog-slider', {
+    spaceBetween: 20,
+    slidesPerView: 3,
+    // Navigation arrows
+    navigation: {
+      nextEl: '.catalog-slider__next',
+      prevEl: '.catalog-slider__prev',
     },
     breakpoints: {
       927: {
@@ -37,12 +55,14 @@ const swiper1 = new Swiper('.types-slider', {
     }
   });
 
-  const swiper3 = new Swiper('.catalog-slider', {
-    spaceBetween: 20,
-    slidesPerView: 10,
-    // Navigation arrows
-    navigation: {
-      nextEl: '.catalog-slider__next',
-      prevEl: '.catalog-slider__prev',
-    },
-  });
+const burger = document.querySelector('.menu-icon');
+const menu = document.querySelector('.nav');
+const body = document.body
+
+if (burger && menu) {
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('_active');
+    menu.classList.toggle('_active');
+    body.classList.toggle('_active');
+  })
+}
